@@ -1,6 +1,40 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect } from "react";
 
 export default function Home() {
+  // CREATING ACTIVE HEADINGS (Green)
+  useEffect(() => {
+    const headings__group1 = document.querySelectorAll<HTMLDivElement>(
+      ".statistics__content--header .statistics__heading"
+    );
+    const headings__group2 = document.querySelectorAll<HTMLDivElement>(
+      ".statistics__content--header-second .statistics__heading"
+    );
+    let currentIndex1 = 0;
+    let currentIndex2 = 0;
+
+    function rotateHighlight() {
+      // remove "active" setting from all
+      headings__group1.forEach((h) => h.classList.remove("active"));
+      headings__group2.forEach((h) => h.classList.remove("active"));
+
+      // add "active" setting to current element
+      if (headings__group1[currentIndex1]) headings__group1[currentIndex1].classList.add("active");
+      if (headings__group2[currentIndex2]) headings__group2[currentIndex2].classList.add("active");
+
+
+      // move to the next element
+      currentIndex1 = (currentIndex1 + 1) % headings__group1.length;
+      currentIndex2 = (currentIndex2 + 1) % headings__group2.length;
+    }
+    // run and repeat 
+    rotateHighlight();
+    const interval = setInterval(rotateHighlight, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <>
       <nav className="nav">

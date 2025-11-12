@@ -1,3 +1,4 @@
+
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
 
 * {
@@ -218,7 +219,7 @@ button:disabled {
   margin-bottom: 0;
 }
 
-.statistics__heading--active {
+.statistics__heading.active {
   color: #2bd97c;
 }
 
