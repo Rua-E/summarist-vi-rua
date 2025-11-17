@@ -1,7 +1,9 @@
 "use client";
 
-import Image from "next/image";
-import { useEffect } from "react";
+// import Image from "next/image";
+import { useEffect, useState } from "react";
+import LoginModal from "../components/LoginModal";
+
 
 export default function Home() {
   // CREATING ACTIVE HEADINGS (Green)
@@ -35,6 +37,8 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
+  const [open, setOpen] = useState(false);
+
   return (
     <>
       <nav className="nav">
@@ -66,7 +70,8 @@ export default function Home() {
                   <br className="remove--tablet" />
                   and even people who don’t like to read.
                 </div>
-                <button className="btn home__cta--btn">Login</button>
+                <button onClick={() => setOpen(true)} className="btn home__cta--btn">Login</button>
+                <LoginModal open={open} onClose={() => setOpen(false)} />
               </div>
               <figure className="landing__image--mask">
                 <img src="/assets/landing.png" alt="landing" />
