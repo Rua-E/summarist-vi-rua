@@ -2,8 +2,9 @@
 
 import "./LoginModal.css";
 import { useState } from "react";
-import { FcGoogle } from "react-icons/fc";
+import { FcGoogle, FcBusinessman } from "react-icons/fc";
 import { IoClose } from "react-icons/io5";
+import { FaUser } from "react-icons/fa";
 
 export default function LoginModal({ open, onClose }: {
   open: boolean;
@@ -27,7 +28,8 @@ export default function LoginModal({ open, onClose }: {
 
     {/* Login as Guest */}
     <button className="guest-login-btn">
-      <span>Login as a Guest</span>
+    <FaUser size={24} className="guest-icon" />
+      <span className="guest-icon-text">Login as a Guest</span>
     </button>
 
     <div className="divider">
@@ -39,7 +41,9 @@ export default function LoginModal({ open, onClose }: {
     {/* Google Login */}
     <button className="google-login-btn">
       <FcGoogle size={24} className="google-icon" />
+      <div className="google-login-text">
       Login with Google
+      </div>
     </button>
 
     <div className="divider">
@@ -71,7 +75,7 @@ export default function LoginModal({ open, onClose }: {
 
     <div className="bottom-links">
       <button className="link">Forgot your password?</button>
-      <button className="link">Don’t have an account?</button>
+      <button className="link_2">Don’t have an account?</button>
     </div>
 
   </div>
